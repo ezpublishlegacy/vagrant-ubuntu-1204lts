@@ -8,5 +8,8 @@ class upgrade {
     exec { 'apt-get dist-upgrade':
         command => '/usr/bin/apt-get dist-upgrade -y',
         returns => [0, 1, 100],
+    } ~>
+    package { "vim":
+    	ensure => installed,
     }
 }
